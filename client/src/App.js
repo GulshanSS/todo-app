@@ -1,9 +1,10 @@
 import React from "react";
+import { TodoPage } from "./Pages/TodoPage";
 
 function App() {
   return (
-    <div className="flex justify-center align-middle">
-      <h1 className="font-mono text-3xl underline">Hello World</h1>
+    <div className="container mx-auto">
+      <TodoPage />
     </div>
   );
 }
