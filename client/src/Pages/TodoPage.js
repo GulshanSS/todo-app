@@ -25,7 +25,7 @@ export const TodoPage = () => {
             key={todo.id}
             title={todo.title}
             content={todo.content}
-            status={todo.content}
+            status={todo.todoStatus}
           />
         ))
       ) : (
