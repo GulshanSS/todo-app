@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Todo } from "../Components/Todo";
 import Axios from "axios";
 import axios from "axios";
+import { AddTodo } from "../Components/AddTodo";
 
 export const TodoPage = () => {
   const [todos, setTodos] = useState([]);
@@ -18,19 +19,24 @@ export const TodoPage = () => {
   }, []);
 
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 my-5 sm:mx-2">
-      {todos.length > 0 ? (
-        todos.map((todo) => (
-          <Todo
-            key={todo.id}
-            title={todo.title}
-            content={todo.content}
-            status={todo.todoStatus}
-          />
-        ))
-      ) : (
-        <h1>No Todo's Available</h1>
-      )}
+    <div className="grid grid-cols-2 my-5">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:mx-2">
+        {todos.length > 0 ? (
+          todos.map((todo) => (
+            <Todo
+              key={todo.id}
+              title={todo.title}
+              content={todo.content}
+              status={todo.todoStatus}
+            />
+          ))
+        ) : (
+          <h1>No Todo's Available</h1>
+        )}
+      </div>
+      <div>
+        <AddTodo />
+      </div>
     </div>
   );
 };
