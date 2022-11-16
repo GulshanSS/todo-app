@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { configure } from "@testing-library/react";
 
 export const AddTodo = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +10,10 @@ export const AddTodo = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    axios
+      .post("http://localhost:8080/api/v1/todo/add", formData)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err.message));
   };
 
   return (
