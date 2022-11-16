@@ -23,6 +23,8 @@ public class TodoService {
     }
 
     public ResponseEntity<Todo> addTodos(Todo todo) {
+        if(todo.getBackgroundColor() == null) todo.setBackgroundColor("#000");
+        if(todo.getTodoStatus() == null) todo.setTodoStatus("Pending");
         return new ResponseEntity<>(todoRepository.save(todo), HttpStatus.ACCEPTED);
     }
 
